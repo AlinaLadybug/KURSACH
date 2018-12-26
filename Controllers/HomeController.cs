@@ -4,13 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using LAB9.Models;
+using KR.Models;
 using System.Data;
-using LAB9.Models.Database;
-using LAB9.Models.ViewModel;
+using KR.Models.Database;
+using KR.Models.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
-namespace LAB9.Controllers
+namespace KR.Controllers
 {
     public class HomeController : Controller
     {

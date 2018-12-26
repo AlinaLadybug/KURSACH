@@ -1,7 +1,7 @@
 using System;
-using LAB9.Models.Database;
+using KR.Models.Database;
 
-namespace LAB9.Models.ViewModel{
+namespace KR.Models.ViewModel{
     public class MessageVm{
         public string Text { get; set; }
         public string Sender { get; set; }

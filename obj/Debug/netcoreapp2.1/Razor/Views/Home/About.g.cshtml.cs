@@ -14,18 +14,18 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\KPI\БД\КУРСАЧ\Views\_ViewImports.cshtml"
-using LAB9;
+using KR;
 
 #line default
 #line hidden
 #line 2 "D:\KPI\БД\КУРСАЧ\Views\_ViewImports.cshtml"
-using LAB9.Models;
+using KR.Models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"de58e5c41ec1e67f55b1383a57dd11710610c3ef", @"/Views/Home/About.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b55ce6741ef359bc8172e8aa6e959a8d47a410e8", @"/Views/_ViewImports.cshtml")]
-    public class Views_Home_About : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LAB9.Models.ViewModel.ProblemVm>
+    public class Views_Home_About : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<KR.Models.ViewModel.ProblemVm>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/wwwroot/css/bootstrap.min.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -224,7 +224,7 @@ WriteAttributeValue("", 762, link, 762, 5, false);
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<LAB9.Models.ViewModel.ProblemVm> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<KR.Models.ViewModel.ProblemVm> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

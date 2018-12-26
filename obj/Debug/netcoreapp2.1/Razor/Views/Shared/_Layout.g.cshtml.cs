@@ -14,12 +14,12 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\KPI\БД\КУРСАЧ\Views\_ViewImports.cshtml"
-using LAB9;
+using KR;
 
 #line default
 #line hidden
 #line 2 "D:\KPI\БД\КУРСАЧ\Views\_ViewImports.cshtml"
-using LAB9.Models;
+using KR.Models;
 
 #line default
 #line hidden
@@ -102,7 +102,7 @@ using LAB9.Models;
 #line hidden
                 EndContext();
                 BeginContext(170, 23, true);
-                WriteLiteral(" - LAB9</title>\r\n\r\n    ");
+                WriteLiteral(" - KR</title>\r\n\r\n    ");
                 EndContext();
                 BeginContext(193, 193, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5e014bc03442415895dce566b616398c", async() => {
@@ -275,7 +275,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
                 BeginContext(1380, 85, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30a23e8749da413a9a6756c53b535e7d", async() => {
                     BeginContext(1457, 4, true);
-                    WriteLiteral("LAB9");
+                    WriteLiteral("KR");
                     EndContext();
                 }
                 );
@@ -352,7 +352,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LinkTagHelper.AppendVersion = true;
 #line hidden
                 EndContext();
                 BeginContext(1864, 112, true);
-                WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <p>&copy; 2018 - LAB9</p>\r\n        </footer>\r\n    </div>\r\n\r\n    ");
+                WriteLiteral("\r\n        <hr />\r\n        <footer>\r\n            <p>&copy; 2018 - KR</p>\r\n        </footer>\r\n    </div>\r\n\r\n    ");
                 EndContext();
                 BeginContext(1976, 258, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c521205a8c448b4ba30c1657fcab88a", async() => {

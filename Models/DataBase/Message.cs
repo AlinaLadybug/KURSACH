@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LAB9.Models.Database
+namespace KR.Models.Database
 {
     public partial class Message
     {

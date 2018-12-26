@@ -1,6 +1,6 @@
-using LAB9.Models.Database;
+using KR.Models.Database;
 
-namespace LAB9.Models.ViewModel{
+namespace KR.Models.ViewModel{
     public class ProblemVm{
         public Problem[] Problems { get; set; }
     }

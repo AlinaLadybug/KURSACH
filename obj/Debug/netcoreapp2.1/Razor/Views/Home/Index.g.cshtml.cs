@@ -14,12 +14,12 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\KPI\БД\КУРСАЧ\Views\_ViewImports.cshtml"
-using LAB9;
+using KR;
 
 #line default
 #line hidden
 #line 2 "D:\KPI\БД\КУРСАЧ\Views\_ViewImports.cshtml"
-using LAB9.Models;
+using KR.Models;
 
 #line default
 #line hidden

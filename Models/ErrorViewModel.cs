@@ -1,6 +1,6 @@
 using System;
 
-namespace LAB9.Models
+namespace KR.Models
 {
     public class ErrorViewModel
     {

@@ -11870,9 +11870,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\KPI\\БД\\КУРСАЧ\\LAB9.csproj",
-      "projectName": "LAB9",
-      "projectPath": "D:\\KPI\\БД\\КУРСАЧ\\LAB9.csproj",
+      "projectUniqueName": "D:\\KPI\\БД\\КУРСАЧ\\KR.csproj",
+      "projectName": "KR",
+      "projectPath": "D:\\KPI\\БД\\КУРСАЧ\\KR.csproj",
       "packagesPath": "C:\\Users\\Alina\\.nuget\\packages\\",
       "outputPath": "D:\\KPI\\БД\\КУРСАЧ\\obj\\",
       "projectStyle": "PackageReference",
