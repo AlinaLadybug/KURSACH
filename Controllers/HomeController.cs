@@ -5,9 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LAB9.Models;
-using LAB9.Models.DataBase;
 using System.Data;
-using LAB9.Models.ViewModels;
+using LAB9.Models.Database;
+using LAB9.Models.ViewModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace LAB9.Controllers
 {
@@ -23,37 +24,34 @@ namespace LAB9.Controllers
             return View();
         }
 
-        [Route("crop")]
-        public IActionResult About()
+        [Route("problem")]
+        public async Task<IActionResult> About()
         {
-            var crops = _dbContext.Set<Crop>()
-                                 .ToArray();
-            var result = new CropVm() { Crops = crops };
+            var problems =await _dbContext.Set<Problem>()
+                                        .AsNoTracking()
+                                        .ToArrayAsync();
+            var result = new ProblemVm() { Problems = problems };
             return View(result);
         }
 
-        [Route("profit/{cropId:int}")]
-        public IActionResult Profit(int cropId)
+        [Route("info/{problemId:int}")]
+        public async Task<IActionResult> Info(int problemId)
         {
-            var cropName = _dbContext.Set<Crop>()
-                                     .Where(x => x.CropId == cropId)
-                                     .Select(x => x.Name)
-                                     .FirstOrDefault();
-            var cost = _dbContext.Set<Roadmap>()
-                                    .Where(x => x.CropId == cropId)
-                                    .Select(x => x.Sum)
-                                    .FirstOrDefault();
-            var profit = _dbContext.Set<Invoice>()
-                                    .Where(x => x.CropId == cropId)
-                                    .Select(x => x.Sum)
-                                    .FirstOrDefault();
-            var totalProfit = profit - cost;
-            var result = new ProfitVm()
-            {
-                CropName = cropName,
-                TotalProfit = totalProfit
-            };
-            return View(result);
+            var messages = await _dbContext.Set<Message>()
+                                     .Where(x => x.ProblemId == problemId)
+                                     .Select(x => new MessageVm
+                                     {
+                                         Text = x.Text,
+                                         Sender = x.From.FirstName + " " + x.From.LastName,
+                                         Date = (DateTime)x.Sent
+                                     })
+                                     .ToArrayAsync();
+            // var resuprofitlt = new MessageVm()
+            // {
+            //     Messages = messages.Select(x => x.Text).ToArray(),
+            //     Senders = messages.Select(x => x.From.FirstName + x.From.LastName).ToArray()
+            // };
+            return View(messages);
         }
 
         public IActionResult Privacy()
@@ -67,6 +65,6 @@ namespace LAB9.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       
+
     }
 }
