@@ -1,0 +1,38 @@
+﻿@model LAB9.Models.ViewModels.ProfitVm
+
+@{
+    ViewData["Title"] = "Про програму";
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/wwwroot/css/bootstrap.min.css" />
+</head>
+<body>
+<h2>@ViewData["Title"]</h2>
+<p>Лабораторна робота №9, курс Системи баз даних. Виконала студентка групи ІС-62, Стрільцова Аліна</p>
+
+
+@if (Model.TotalProfit == null)
+{
+     <h3>Crop has no profit. Please select another one</h3>
+}
+else
+{
+<table id="crops" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Crop</th>
+            <th>TotalProfit</th>
+        </tr>
+            <tr>
+                <td>@Model.CropName</td>
+                <td>@Model.TotalProfit грн</td>
+            </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+}
+</body>
+
+

@@ -1,0 +1,42 @@
+﻿@model LAB9.Models.ViewModels.CropVm
+
+@{
+    ViewData["Title"] = "Про програму";
+}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="~/wwwroot/css/bootstrap.min.css" />
+</head>
+<body>
+<h2>@ViewData["Title"]</h2>
+<p>Лабораторна робота №9, курс Системи баз даних. Виконала студентка групи ІС-62, Стрільцова Аліна</p>
+
+
+@if (Model.Crops.Length == 0)
+{
+     <p> No Crop in DB</p>
+}
+else
+{
+<table id="crops" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Crop</th>
+        </tr>
+        @foreach ( var crop in Model.Crops)
+        {
+            <tr>
+                <td>
+                    @{var link = "profit/"+crop.CropId;}
+                    <a href=@link>@crop.Name</a>
+                </td>
+            </tr>
+        }
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+}
+</body>
+
+
