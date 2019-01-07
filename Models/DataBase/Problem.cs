@@ -7,14 +7,16 @@ namespace KR.Models.Database
     {
         public Problem()
         {
-            Message = new HashSet<Message>();
+            Comment = new HashSet<Comment>();
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
+        public DateTime? CreationDate { get; set; }
         public string Status { get; set; }
-        public DateTime? Created { get; set; }
+        public int? TypeId { get; set; }
 
-        public ICollection<Message> Message { get; set; }
+        public ProblemType Type { get; set; }
+        public ICollection<Comment> Comment { get; set; }
     }
 }

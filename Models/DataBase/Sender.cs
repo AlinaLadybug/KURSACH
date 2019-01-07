@@ -7,18 +7,14 @@ namespace KR.Models.Database
     {
         public Sender()
         {
-            MessageFrom = new HashSet<Message>();
-            MessageTo = new HashSet<Message>();
+            Comment = new HashSet<Comment>();
         }
 
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
-        public string JobPosition { get; set; }
 
-        public ICollection<Message> MessageFrom { get; set; }
-        public ICollection<Message> MessageTo { get; set; }
+        public ICollection<Comment> Comment { get; set; }
     }
 }

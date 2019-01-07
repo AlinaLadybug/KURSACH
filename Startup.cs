@@ -35,8 +35,8 @@ namespace KR
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<DataBaseContext>(options =>  options.UseSqlServer(Configuration["ConnectionStrings:DB"]));
-            services.AddScoped<DataBaseContext>();
+            services.AddDbContext<KRContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DB"]));
+            services.AddScoped<KRContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,9 +58,11 @@ namespace KR
 
             app.UseMvc(routes =>
             {
+
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Type}/{id?}");
+
             });
         }
     }

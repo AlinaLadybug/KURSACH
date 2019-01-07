@@ -14,50 +14,92 @@ namespace KR.Controllers
 {
     public class HomeController : Controller
     {
-        private DataBaseContext _dbContext;
-        public HomeController(DataBaseContext dbContext)
+        private KRContext _dbContext;
+        public HomeController(KRContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Type()
         {
-            return View();
-        }
-
-        [Route("problem")]
-        public async Task<IActionResult> About()
-        {
-            var problems =await _dbContext.Set<Problem>()
-                                        .AsNoTracking()
+            var types = await _dbContext.Set<ProblemType>()
                                         .ToArrayAsync();
-            var result = new ProblemVm() { Problems = problems };
-            return View(result);
+            return View(types);
         }
 
-        [Route("info/{problemId:int}")]
-        public async Task<IActionResult> Info(int problemId)
-        {
-            var messages = await _dbContext.Set<Message>()
-                                     .Where(x => x.ProblemId == problemId)
-                                     .Select(x => new MessageVm
-                                     {
-                                         Text = x.Text,
-                                         Sender = x.From.FirstName + " " + x.From.LastName,
-                                         Date = (DateTime)x.Sent
-                                     })
-                                     .ToArrayAsync();
-            // var resuprofitlt = new MessageVm()
-            // {
-            //     Messages = messages.Select(x => x.Text).ToArray(),
-            //     Senders = messages.Select(x => x.From.FirstName + x.From.LastName).ToArray()
-            // };
-            return View(messages);
-        }
+        // [HttpGet]
+        // [Route("problem")]
+        // public async Task<IActionResult> Problem()
+        // {
+        //     var problems = await _dbContext.Set<Problem>()
+        //                                 .AsNoTracking()
+        //                                 .ToArrayAsync();
+        //     var result = new ProblemVm() { Problems = problems };
+        //     return View(result);
+        // }
 
-        public IActionResult Privacy()
+        // [HttpGet]
+        // [Route("info/{problemId:int}")]
+        // public async Task<IActionResult> Info(int problemId)
+        // {
+        //     var messages = await _dbContext.Set<Comment>()
+        //                              .Where(x => x.ProblemId == problemId)
+        //                              .Select(x => new CommentVm
+        //                              {
+        //                                  Text = x.Text,
+        //                                  Sender = x.Sender.FirstName + " " + x.Sender.LastName,
+        //                                  Date = (DateTime)x.Date
+        //                              })
+        //                              .ToArrayAsync();
+        //     // var resuprofitlt = new MessageVm()
+        //     // {
+        //     //     Messages = messages.Select(x => x.Text).ToArray(),
+        //     //     Senders = messages.Select(x => x.From.FirstName + x.From.LastName).ToArray()
+        //     // };
+        //     return View(messages);
+        // }
+
+
+        [HttpGet]
+        public IActionResult AddProblem()
         {
             return View();
         }
+
+
+        // [HttpPost]
+        // public async Task AddProblem(Problem problem)
+        // {
+        //     problem.CreationDate = DateTime.Now;
+        //     _dbContext.Set<Problem>().Add(problem);
+        //     await _dbContext.SaveChangesAsync();
+        //     return;
+        // }
+
+        // [HttpDelete]
+        // [Route("{problemId:int}")]
+        // public async Task<IActionResult> DeleteProblem(int problemId)
+        // {
+        //     var problem = await _dbContext.Set<Problem>()
+        //                             .Where(x => x.Id == problemId)
+        //                             .FirstOrDefaultAsync();
+        //     _dbContext.Set<Problem>().Remove(problem);
+        //     await _dbContext.SaveChangesAsync();
+        //     return View();
+        // }
+
+        // [HttpPut]
+        // [Route("{problemId:int}")]
+        // public async Task<IActionResult> DeleteProblem(Problem problem)
+        // {
+        //     var problemNew = await _dbContext.Set<Problem>()
+        //                             .Where(x => x.Id == problem.Id)
+        //                             .FirstOrDefaultAsync();
+        //     problemNew.Title = problem.Title;
+        //     problem.Status = problem.Status;
+        //     _dbContext.Set<Problem>().Update(problem);
+        //     await _dbContext.SaveChangesAsync();
+        //     return View();
+        // }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
