@@ -12,6 +12,7 @@ namespace KR.Models.ViewModel
         public string ProblemTitle { get; set; }
         public int ProblemId { get; set; }
         public int SenderId { get; set; }
+        public SenderVm[] Senders { get; set; }
 
     }
 }

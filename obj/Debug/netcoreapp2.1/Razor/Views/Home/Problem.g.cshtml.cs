@@ -74,12 +74,12 @@ using KR.Models;
             WriteLiteral("  <!DOCTYPE html>\r\n\r\n  ");
             EndContext();
             BeginContext(124, 181, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fda025c5c044b82b826bcea508d95dd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9e40bc8a8d0472aab0daf0bff6fbc09", async() => {
                 BeginContext(130, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(136, 64, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4c920d6d30a742b187eed2a01a4ffbaa", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "81c1ff41797f467ab90ec1d9cc10e231", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -132,7 +132,7 @@ using KR.Models;
   ");
             EndContext();
             BeginContext(1115, 5445, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ac2a5734f2945079afaeb7e92256bff", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c66192bec0a84e72afd39ec32be196ba", async() => {
                 BeginContext(1121, 903, true);
                 WriteLiteral(@"
 
@@ -162,7 +162,7 @@ using KR.Models;
               ");
                 EndContext();
                 BeginContext(2024, 612, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58c184bd6f6e43ebb76ea50927b88442", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3d93c475e8c445cabea14325914b9ff", async() => {
                     BeginContext(2061, 38, true);
                     WriteLiteral("\r\n                <input type=\"hidden\"");
                     EndContext();
@@ -227,7 +227,7 @@ WriteAttributeValue("", 2107, ViewBag.TypeId, 2107, 15, false);
               ");
                 EndContext();
                 BeginContext(3366, 715, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a04fc230bcff4f1b96d03d06b3c9b1b5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "690744b08f214fd3a14aa96eddd2d4a3", async() => {
                     BeginContext(3409, 82, true);
                     WriteLiteral("\r\n                <div class=\"form-group\">\r\n                  <input type=\"hidden\"");
                     EndContext();
@@ -302,7 +302,7 @@ WriteAttributeValue("", 3580, ViewBag.ProblemId, 3580, 18, false);
               ");
                 EndContext();
                 BeginContext(4821, 303, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "534ad316747a4820b06c634ff4da1e13", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a485468272945ffb18b6e07ae87a6c2", async() => {
                     BeginContext(4864, 38, true);
                     WriteLiteral("\r\n                <input type=\"hidden\"");
                     EndContext();
@@ -446,7 +446,7 @@ WriteAttributeValue("", 5579, link, 5579, 5, false);
                 WriteLiteral("      </thead>\r\n      <tbody>\r\n      </tbody>\r\n    </table>\r\n    <nav aria-label=\"...\">\r\n      <ul class=\"pager\">\r\n        <li class=\"previous\">");
                 EndContext();
                 BeginContext(6454, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f84898e0f89b424f9a2dd5b17bee978b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d89b33c0ddd1484bb6fc0b61712fba91", async() => {
                     BeginContext(6471, 44, true);
                     WriteLiteral("<span aria-hidden=\"true\">&larr;</span> Назад");
                     EndContext();

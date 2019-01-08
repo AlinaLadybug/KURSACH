@@ -126,6 +126,14 @@ namespace KR.Controllers
         {
             try
             {
+                var senders = await _dbContext.Set<Sender>()
+                                          .Select(x => new SenderVm
+                                          {
+                                              FullName = x.FirstName + " " + x.LastName,
+                                              Id = x.Id
+                                          })
+                                          .ToArrayAsync();
+                ViewBag.Senders = senders;
                 var problem = await _dbContext.Set<Problem>()
                                         .Where(x => x.Id == problemId)
                                         .FirstOrDefaultAsync();
@@ -134,22 +142,25 @@ namespace KR.Controllers
                 ViewBag.TypeId = problem.TypeId;
                 var problemIdParam = new SqlParameter("@problemIdParam", problemId);
                 var query = @"
-                            SELECT 
+                            SELECT
                                 COMMENT.Id,
                                 Text,
                                 Date,
                                 PROBLEM.Title as ProblemTitle,
                                 ProblemId,
-                                SenderId, 
+                                SenderId,
                                 (SENDER.FirstName +' ' +SENDER.LastName) as SenderName
                             FROM PROBLEM
                             LEFT JOIN COMMENT on COMMENT.ProblemId = PROBLEM.Id
                             JOIN SENDER on SENDER.Id = COMMENT.SenderId
-                            where PROBLEM.Id = @problemIdParam";
+                            where PROBLEM.Id = @problemIdParam
+                            ORDER BY Date DESC";
                 var comments = await _dbContext.Set<CommentVm>()
                                                 .FromSql(query, problemIdParam)
                                                 .AsNoTracking()
                                                 .ToArrayAsync();
+
+
                 return View("Comment", comments);
             }
             catch
@@ -160,7 +171,7 @@ namespace KR.Controllers
 
 
         [HttpPost]
-        [Route("comment")]
+        [Route("info/comment")]
         public async Task<IActionResult> AddComment(Comment comment)
         {
             try
@@ -168,7 +179,7 @@ namespace KR.Controllers
                 comment.Date = DateTime.Now;
                 _dbContext.Add(comment);
                 await _dbContext.SaveChangesAsync();
-                return new EmptyResult();
+                return RedirectToAction("Info", new { problemId = comment.ProblemId });
             }
             catch
             {
@@ -176,38 +187,42 @@ namespace KR.Controllers
             }
         }
 
-        [HttpDelete]
-        [Route("delete/{commentId:int}")]
-        public async Task<IActionResult> DeleteComment(int commentId)
+        [HttpPost]
+        [Route("info/deletecomment")]
+        public async Task<IActionResult> DeleteComment(Comment comment)
+        {
+            try
+            {
+                _dbContext.Set<Comment>().Remove(comment);
+                await _dbContext.SaveChangesAsync();
+                return RedirectToAction("Info", new { problemId = comment.ProblemId });
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+
+        [HttpPost]
+        [Route("info/updatecomment")]
+        public async Task<IActionResult> UpdateComment(CommentVm commentVm)
         {
             try
             {
                 var comment = await _dbContext.Set<Comment>()
-                                        .Where(x => x.Id == commentId)
-                                        .FirstOrDefaultAsync();
-                _dbContext.Set<Comment>().Remove(comment);
+                                              .Where(x => x.Id == commentVm.Id)
+                                              .FirstOrDefaultAsync();
+                if (!string.IsNullOrWhiteSpace(commentVm.Text))
+                {
+                    comment.Text = commentVm.Text;
+                }
+                // if (!string.IsNullOrWhiteSpace(commentVm.FirstName))
+                // {
+                //     comment.Title = commentVm.Title;
+                // }
                 await _dbContext.SaveChangesAsync();
-                return View();
-            }
-            catch
-            {
-                return RedirectToAction("Index");
-            }
-        }
-
-
-        [HttpPut]
-        [Route("comment")]
-        public async Task<IActionResult> EditComment(Comment comment)
-        {
-            try
-            {
-                var commentNew = await _dbContext.Set<Comment>()
-                                       .Where(x => x.Id == comment.Id)
-                                       .FirstOrDefaultAsync();
-                commentNew.Text = comment.Text;
-                await _dbContext.SaveChangesAsync();
-                return View();
+                return RedirectToAction("Info", new { problemId = comment.ProblemId });
             }
             catch
             {
@@ -216,7 +231,7 @@ namespace KR.Controllers
         }
 
         [HttpGet]
-        [Route("sender/{commentId:int}")]
+        [Route("info/sender/{commentId:int}")]
         public async Task<IActionResult> GetSender(int commentId)
         {
             try
@@ -230,7 +245,7 @@ namespace KR.Controllers
                 var result = await _dbContext.Set<Sender>()
                                              .FromSql(query, commentIdParam)
                                              .ToArrayAsync();
-                return View();
+                return View("Sender");
             }
             catch
             {

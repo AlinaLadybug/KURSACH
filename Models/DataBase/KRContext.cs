@@ -89,7 +89,7 @@ namespace KR.Models.Database
             {
                 entity.ToTable("SENDER");
 
-                entity.Property(e => e.Email)
+                entity.Property(e => e.Position)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
