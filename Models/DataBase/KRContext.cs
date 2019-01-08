@@ -21,6 +21,7 @@ namespace KR.Models.Database
         public virtual DbSet<ProblemType> ProblemType { get; set; }
         public virtual DbSet<Sender> Sender { get; set; }
         public virtual DbSet<CommentVm> CommentVm { get; set; }
+        public virtual DbSet<SenderVm> SenderVm { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

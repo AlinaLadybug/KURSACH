@@ -1,17 +1,50 @@
-﻿@{
-    ViewData["Title"] = "Contact";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@model IEnumerable<KR.Models.ViewModel.SenderVm>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    @{
+    ViewData["Title"] = "Тестування ПЗ";
+    }
+    <!DOCTYPE html>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <head>
+        <link rel="stylesheet" href="~/wwwroot/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <h2>Відправники</h2>
+        <p>
+            <a href="~/">
+                <button type="button" class="btn btn-info" style=" right:12rem;">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                </button>
+            </a>
+        </p>
+        <p>
+            <table id="senders" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Повне ім'я</th>
+                        <th>Посада</th>
+                        <th>Кількість коментарів</th>
+                    </tr>
+                    @foreach ( var sender in Model)
+                    {
+                    <tr>
+                        <td>
+                            @sender.FullName
+                        </td>
+                        <td>
+                            @sender.Position
+                        </td>
+                        <td>
+                            @sender.CommentCount
+                        </td>
+                    </tr>
+                    }
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </p>
+    </body>

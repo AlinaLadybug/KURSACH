@@ -231,26 +231,34 @@ namespace KR.Controllers
         }
 
         [HttpGet]
-        [Route("info/sender/{commentId:int}")]
-        public async Task<IActionResult> GetSender(int commentId)
+        [Route("sender")]
+        public async Task<IActionResult> GetSender()
         {
-            try
-            {
-                var commentIdParam = new SqlParameter("@commentIdParam", commentId);
-                var query = @"
-                            SELECT SENDER.*
-                            FROM COMMENT
-                            RIGHT JOIN SENDER on SENDER.Id = COMMENT.SenderId
-                            where COMMENT.Id=@commentIdParam";
-                var result = await _dbContext.Set<Sender>()
-                                             .FromSql(query, commentIdParam)
-                                             .ToArrayAsync();
-                return View("Sender");
-            }
-            catch
-            {
-                return RedirectToAction("Index");
-            }
+            // try
+            // {
+            var query = @"
+                            SELECT 
+                                SENDER.Id,
+                                (FirstName +' '+ LastName) as FullName,
+                                Position,
+                                Count(COMMENT.Id) as CommentCount
+                            FROM
+                                SENDER
+                                LEFT JOIN COMMENT on COMMENT.SenderId = SENDER.Id
+                            GROUP BY SENDER.Id,
+                                    (FirstName +' '+ LastName),
+                                    Position
+                            ORDER BY CommentCount DESC
+                            ";
+            var senders = await _dbContext.Set<SenderVm>()
+                                         .FromSql(query)
+                                         .ToArrayAsync();
+            return View("Sender", senders);
+            // }
+            // catch
+            // {
+            //     return RedirectToAction("Index");
+            // }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

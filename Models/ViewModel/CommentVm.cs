@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using KR.Models.Database;
 
 namespace KR.Models.ViewModel
@@ -12,7 +13,7 @@ namespace KR.Models.ViewModel
         public string ProblemTitle { get; set; }
         public int ProblemId { get; set; }
         public int SenderId { get; set; }
-        public SenderVm[] Senders { get; set; }
+        public ICollection<Sender> Senders { get; set; }
 
     }
 }

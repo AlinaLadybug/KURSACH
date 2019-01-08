@@ -35,16 +35,23 @@
 
         <p>
             Оберіть тип проблеми
+
+            @foreach ( var type in Model)
+            {
+            var link = "/"+type.Id;
+            <a href="@link">
+
+                <button type="button" class="btn  btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+                    @type.Name
+                </button>
+            </a>
+            }
         </p>
-        @foreach ( var type in Model)
-        {
-        var link = "/"+type.Id;
-        <a href="@link">
-
-            <button type="button" class="btn  btn-info" data-toggle="modal" data-target="#exampleModalCenter">
-                @type.Name
-            </button>
-        </a>
-        }
-
+        <p>
+            <a href="sender">
+                <button type="button" class="btn btn-success">
+                    Переглянути усіх відправників
+                </button>
+            </a>
+        </p>
     </body>
