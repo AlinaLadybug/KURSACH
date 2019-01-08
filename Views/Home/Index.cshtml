@@ -38,7 +38,7 @@
         </p>
         @foreach ( var type in Model)
         {
-        var link = "api/problem/"+type.Id;
+        var link = "/"+type.Id;
         <a href="@link">
 
             <button type="button" class="btn  btn-info" data-toggle="modal" data-target="#exampleModalCenter">

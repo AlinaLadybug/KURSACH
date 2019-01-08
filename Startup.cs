@@ -61,7 +61,7 @@ namespace KR
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Type}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
 
             });
         }

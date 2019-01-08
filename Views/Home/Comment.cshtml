@@ -9,9 +9,13 @@
     </head>
 
     <body>
-        @{var problemTitle = Model.ToArray()[0].ProblemTitle;}
-        @{var problemId = Model.ToArray()[0].ProblemId;}
-        <h3>Коментарі до проблеми @problemTitle</h3>
+        @{var problemTitle = ViewBag.ProblemTitle;
+        var problemId = ViewBag.ProblemId;
+        var typeId = ViewBag.TypeId;
+        var problemLink = "../"+typeId;}
+
+        <h3>Коментарі до проблеми</h3>
+        <h4> <a href=@problemLink>@problemTitle</a></h4>
         <p>
             <!-- Button trigger modal -->
             <button type="button" class="btn  btn-primary" data-toggle="modal" data-target="#addCommentModal">
@@ -31,12 +35,12 @@
                         </h5>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="~/Problem/AddComment">
+                        <form method="post" action="~/Home/AddComment">
                             <input class="form-control" type="text" placeholder=@problemTitle name="ProblemId" value=@problemId
                                 readonly>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Введіть коментар</label>
-                                <textarea name="Text" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" rows="5" id="comment" name="Text"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ПІБ</label>
@@ -62,18 +66,22 @@
                         </h5>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="~/Problem/AddComment">
+                        <form method="post" action="~/Home/EditComment">
                             <input class="form-control" type="text" placeholder=@problemTitle name="ProblemId" value=@problemId
                                 readonly>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Введіть коментар</label>
-                                <textarea name="Text" id="" cols="30" rows="10"></textarea>
+                                <label for="exampleInputEmail1">Введіть новий коментар</label>
+                                <textarea class="form-control" rows="5" id="comment" name="Text"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">ПІБ</label>
-                                <input type="text" class="form-control" name="Status">
+                                <label for="exampleInputEmail1">Ваше ім'я</label>
+                                <input type="text" class="form-control" name="FirstName">
                             </div>
-                            <button type="submit" class="btn btn-primary">Додати</button>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ваше прізвище</label>
+                                <input type="text" class="form-control" name="LastName">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Зберегти</button>
                         </form>
                     </div>
 
@@ -86,7 +94,6 @@
                 <tr>
                     <th>Текст</th>
                     <th>Дата створення</th>
-                    <th>Назва проблеми</th>
                     <th>Відправник</th>
                     <th>Дія</th>
                 </tr>
@@ -99,13 +106,10 @@
                     <td>
                         @comment.Date
                     </td>
-                    <td>
-                        @{var problemLink = "../"+comment.ProblemId;}
-                        <a href=@problemLink>@comment.ProblemTitle</a>
-                    </td>
+
                     <td>
                         @{var link = "sender/"+comment.SenderId;}
-                        @comment.SenderName
+                        <a href=@link> @comment.SenderName</a>
                     </td>
 
                     <td>
@@ -126,7 +130,7 @@
         </table>
         <nav aria-label="...">
             <ul class="pager">
-                <li class="previous"><a href="~/Home"><span aria-hidden="true">&larr;</span> Назад</a></li>
+                <li class="previous"><a href=@problemLink><span aria-hidden="true">&larr;</span> Назад</a></li>
             </ul>
         </nav>
     </body>

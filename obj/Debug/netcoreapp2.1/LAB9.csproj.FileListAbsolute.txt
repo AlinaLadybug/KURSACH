@@ -60,6 +60,6 @@ D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\LAB9.dll
 D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\LAB9.pdb
 D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\LAB9.csproj.CopyComplete
 D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Home\Sender.g.cshtml.cs
-D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Home\Type.g.cshtml.cs
-D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Problem\Problem.g.cshtml.cs
-D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Problem\Comment.g.cshtml.cs
+D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Home\Comment.g.cshtml.cs
+D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Home\Problem.g.cshtml.cs
+D:\KPI\БД\КУРСАЧ\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
